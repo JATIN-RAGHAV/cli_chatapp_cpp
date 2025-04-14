@@ -30,7 +30,6 @@ int main() {
         listen(server_fd,10);
         std::cout << "Server is listening on port: " << PORT << '\n';
 
-
         while(true){
                 int client_fd = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addr_len);
                 if(client_fd < 0){
