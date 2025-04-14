@@ -2,7 +2,7 @@
 #include <sys/socket.h>
 #include <thread>
 #include <unistd.h>
-#include "../utils/utils.h"
+#include "../utils/utils.hpp"
 #include <netinet/in.h>
 
 int PORT = 8080;
@@ -33,6 +33,11 @@ int main() {
 
         while(true){
                 int client_fd = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addr_len);
-                handle_connection(client_fd);
+                if(client_fd < 0){
+                        std::cout << "Invalid client joined";
+                        exit(3);
+                }
+                std::thread thread{handle_connection,client_fd};
+                thread.detach();
         }
 }
