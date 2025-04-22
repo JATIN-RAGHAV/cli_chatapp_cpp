@@ -21,7 +21,6 @@ int main(){
         server_addr.sin_family = AF_INET;
 
         inet_pton(AF_INET, IP.c_str(), &server_addr.sin_addr);
-        std::cout << "ip added\n";
 
         if(connect(sock, (struct sockaddr*)&server_addr, sizeof(server_addr)) != 0){
                 std::cerr << "Couldn't connect to the server.";
@@ -29,9 +28,10 @@ int main(){
         }
 
         std::cout << "Connection made\n";
-        std::string Message{"Hello server\r"};
+        std::string Message{"Hello server\n"
+        "This is line two\n"
+        "This is line three\r"};
         send(sock, Message.c_str(), Message.size(), 0);
 
         std::cout << dynamic_read(sock) << '\n';
-
 }
