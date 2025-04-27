@@ -2,7 +2,7 @@
 #include <sys/socket.h>
 #include <thread>
 #include <unistd.h>
-#include "../utils/utils.hpp"
+#include "common.h"
 #include <netinet/in.h>
 
 int PORT = 8080;
