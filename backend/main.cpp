@@ -12,7 +12,7 @@ int main() {
         struct sockaddr_in address;
         int PORT = 8080;
         int addr_len = sizeof(address);
-        
+
         if((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0){
                 std::cerr << "Can't start the server";
                 exit(1);
@@ -38,5 +38,6 @@ int main() {
                 }
                 std::thread thread{handle_connection,client_fd};
                 thread.detach();
+                database();
         }
 }
