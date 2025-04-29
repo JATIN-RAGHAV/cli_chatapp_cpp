@@ -38,6 +38,5 @@ int main() {
                 }
                 std::thread thread{handle_connection,client_fd};
                 thread.detach();
-                database();
         }
 }

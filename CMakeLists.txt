@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 project(SuperProject)
 
 list(APPEND CMAKE_PREFIX_PATH "$ENV{HOME}/.local")
+list(APPEND CMAKE_PREFIX_PATH "$ENV{HOME}/CLibs/libenvpp")
 
 add_subdirectory(backend)
 add_subdirectory(frontend)
